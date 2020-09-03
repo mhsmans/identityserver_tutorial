@@ -23,6 +23,7 @@ namespace mvc_client
                     config.ClientSecret = "client_secret_mvc";
                     config.SaveTokens = true;
                     config.ResponseType = "code";
+                    config.SignedOutCallbackPath = "/Home/Index";
 
                     /** configure cookie claims in client **/
 
@@ -41,7 +42,7 @@ namespace mvc_client
 
                     // used for refresh token               
                     // not implemented
-                    config.Scope.Add("offline_access");
+                    //config.Scope.Add("offline_access");
 
                     /********************************/
                 });
