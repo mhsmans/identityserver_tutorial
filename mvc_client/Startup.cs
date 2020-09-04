@@ -25,6 +25,8 @@ namespace mvc_client
                     config.ResponseType = "code";
                     config.SignedOutCallbackPath = "/Home/Index";
 
+                    config.UsePkce = true;
+
                     /** configure cookie claims in client **/
 
                     // configure cookie claim mapping

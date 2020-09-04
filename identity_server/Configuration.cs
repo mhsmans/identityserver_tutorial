@@ -51,6 +51,8 @@ namespace identity_server
                     ClientId = "client_id_mvc",
                     ClientSecrets = { new Secret("client_secret_mvc".ToSha256()) },
 
+                    RequirePkce = true,
+
                     AllowedGrantTypes = GrantTypes.Code,
                     RedirectUris = {"https://localhost:43000/signin-oidc"},
                     PostLogoutRedirectUris = {"https://localhost:43000/Home/Index"},
@@ -68,6 +70,24 @@ namespace identity_server
                     // used for refresh token, not implemented
                     //AllowOfflineAccess = true,
                     RequireConsent = false,
+                },
+                new Client
+                {
+                    ClientId = "spa",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+                    RedirectUris = {"http://localhost:4200"},
+                    PostLogoutRedirectUris = {"http://localhost:4200"},
+                    AllowedCorsOrigins = {"http://localhost:4200"},
+                    AllowedScopes =
+                    {
+                        IdentityServer4.IdentityServerConstants.StandardScopes.OpenId,
+                        "ApiOne",
+                    },
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+                    
                 }
             };
         }
